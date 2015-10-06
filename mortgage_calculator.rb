@@ -5,7 +5,7 @@ end
 loop do
   prompt('Welcome to the Mortgage Calculator!')
 
-  #GET LOAN AMOUNT
+  # GET LOAN AMOUNT
   prompt('Please enter a loan amount:')
   loan_amt = ''
   loop do
@@ -18,8 +18,8 @@ loop do
     end
   end
 
-  #GET APR
-  #BREAKING HERE ************ ???
+  # GET APR
+  # BREAKING HERE ************ ???
   prompt('Please enter the annual percentage rate of interest:')
   prompt('For example: 5 for 5%, 2.5 for 2.5% etc')
   apr_amt = ''
@@ -33,7 +33,7 @@ loop do
     end
   end
 
-  #GET DURATION
+  # GET DURATION
   prompt('How long would you like your loan to be for? (In Years)')
   yearly_dur_amt = ''
   loop do
@@ -44,20 +44,18 @@ loop do
     else
       break
     end
-
   end
 
-  #CALCULATE MONTHLY INTEREST RATE
-  annual_apr_amt = apr_amt.to_f/100
-  monthly_apr_amt = annual_apr_amt/12
+  # CALCULATE MONTHLY INTEREST RATE
+  annual_apr_amt = apr_amt.to_f / 100
+  monthly_apr_amt = annual_apr_amt / 12
 
-  #CALCULATE DURATION OF LOAN IN MONTHS
+  # CALCULATE DURATION OF LOAN IN MONTHS
   monthly_dur_amt = yearly_dur_amt.to_i * 12
 
-
   result =  loan_amt.to_f *
-        (monthly_apr_amt/
-        (1 - (1 + monthly_apr_amt)**-monthly_dur_amt.to_i))
+            (monthly_apr_amt /
+            (1 - (1 + monthly_apr_amt)**- monthly_dur_amt.to_i))
 
   prompt("Your monthly payment is: $#{format('%02.2f', result)}")
 
@@ -68,10 +66,3 @@ loop do
 end
 
 prompt('Thank you! Goodbye!')
-
-
-
-
-
-
-

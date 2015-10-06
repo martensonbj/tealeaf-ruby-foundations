@@ -2,8 +2,8 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-def valid_number?(num)
-  num.to_i != 0
+def integer?(input)
+  /^\d+$/.match(input)
 end
 
 def operation_to_message(op)
@@ -35,13 +35,12 @@ end
 prompt("Hi #{name}")
 
 loop do
-
   number1 = ''
   loop do
     prompt('Choose a number')
     number1 = Kernel.gets.chomp
 
-    if valid_number?(number1)
+    if integer?(number1)
       break
     else
       prompt("That doesn't look like a valid number")
@@ -53,7 +52,7 @@ loop do
     prompt('Choose a second number')
     number2 = Kernel.gets.chomp
 
-    if valid_number?(number2)
+    if integer?(number2)
       break
     else
       prompt("That doesn't look like a valid number")
@@ -101,4 +100,4 @@ loop do
   break unless answer.downcase.start_with?('y')
 end
 
-prompt("Thank you for using the calculator. Good bye!")\n
+prompt("Thank you for using the calculator. Good bye!")
